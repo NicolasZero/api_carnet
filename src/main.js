@@ -4,6 +4,9 @@ const fastify = require('fastify')(
 
 const routeLicense = require('./routes/license.route.js')
 
+// require('dotenv').config()
+
+
 // Declare a route
 fastify.get('/', (request, reply) => {
     reply.send({ msg:'Wellcome'})
