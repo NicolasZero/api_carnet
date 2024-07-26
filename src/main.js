@@ -2,14 +2,21 @@ const fastify = require('fastify')(
     {logger: false}
 )
 
+const cors = require('@fastify/cors') 
+
 const routeLicense = require('./routes/license.route.js')
 
-// require('dotenv').config()
+fastify.register(cors, { 
+  // put your options here
+})
 
 
 // Declare a route
-fastify.get('/', (request, reply) => {
-    reply.send({ msg:'Wellcome'})
+fastify.get('/api', (request, reply) => {
+    reply
+    .code(200)
+    // .header('Content-Type', 'aplication/json; charset=utf-8')
+    .send({ msg:'Wellcome'})
 })
 
 routeLicense.forEach(route => {
