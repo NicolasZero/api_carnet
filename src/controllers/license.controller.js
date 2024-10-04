@@ -17,7 +17,7 @@ const getAllPersons = async (request, reply) => {
 const getPersons = async (request, reply) => {
     try {
         const ic = request.params.ic
-        const result = await query('select * from persons where identity_card = $1',[ic])
+        const result = await query('select * from general.view_workers where identity_card = $1',[ic])
         return reply.send({data:result.rows})
         // return reply.send({data:request.params.ic})
 
